@@ -5,11 +5,16 @@
         Sign In
     </h2>
     <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">Selamat Datang Di Sistem Penjaminan Mutu Internal Politeknik Negeri Banyuwangi</div>
+    @if (session ('success'))
+        <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-18 text-theme-9"> <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+            {{ session('success') }}
+        </div>
+    @endif
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="intro-x mt-8">
-            <input type="email" class="intro-x login__input input input--lg border border-gray-300 block @error('email') is-invalid @enderror"name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocu>
-            @error('email')
+            <input type="text" class="intro-x login__input input input--lg border border-gray-300 block @error('username') is-invalid @enderror"name="username" value="{{ old('username') }}" placeholder="Username" required autocomplete="username" autofocu>
+            @error('username')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -37,7 +42,7 @@
         </div>
         <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
             <button type="submit" class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3">Login</button>
-            <button class="button button--lg w-full xl:w-32 text-gray-700 border border-gray-300 mt-3 xl:mt-0">Sign up</button>
+            <a href="{{ route('register') }}" class="button button--lg w-full xl:w-32 text-gray-700 border border-gray-300 mt-3 xl:mt-0">Sign up</a>
         </div>
     </form>
     <div class="intro-x mt-10 xl:mt-24 text-gray-700 text-center xl:text-left">
