@@ -23,6 +23,10 @@ Auth::routes();
 Route::get('/',function () {
     return view('pages.dashboard');
 });
+Route::get('/auditor',function () {
+    return view('pages.managemen_akun.auditor.index');
+});
+// Route::get('/auditor', 'ManagemenContrroller@index');
 
 
 // Route::any('/{page?}',function(){
