@@ -5,7 +5,7 @@
 <div class="side-nav__devider my-6"></div>
 <ul>
     <li>
-        <a href="index.html" class="side-menu side-menu--active">
+        <a href="{{url('/')}}" class="side-menu {{ Request::is('/') ? 'side-menu--active' : '' }}">
             <div class="side-menu__icon"> <i data-feather="home"></i> </div>
             <div class="side-menu__title"> Dashboard </div>
         </a>
@@ -15,9 +15,9 @@
             <div class="side-menu__icon"> <i data-feather="tool"></i> </div>
             <div class="side-menu__title"> Managemen Akun <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>
-        <ul class="">
+        <ul class="side-menu__sub-open">
             <li>
-                <a href="index.html" class="side-menu">
+                <a href="{{route ('akun-auditor.index')}}" class="side-menu {{ Request::is('akun-auditor') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="user"></i> </div>
                     <div class="side-menu__title"> Auditor </div>
                 </a>

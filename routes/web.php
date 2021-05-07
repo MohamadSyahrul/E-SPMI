@@ -20,12 +20,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/',function () {
-    return view('pages.dashboard');
+Route::middleware(['auth'])
+->group(function() {
+    Route::get('/',function () {
+        return view('pages.dashboard');
+    });
+    Route::resource('akun-auditor', 'ManagemenController');
 });
-Route::get('/auditor',function () {
-    return view('pages.managemen_akun.auditor.index');
-});
+
+
 // Route::get('/auditor', 'ManagemenContrroller@index');
 
 

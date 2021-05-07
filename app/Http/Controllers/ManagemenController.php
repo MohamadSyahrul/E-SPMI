@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ManagemenController extends Controller
 {
@@ -60,7 +61,8 @@ class ManagemenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = User::findOrFail($id);
+        return view('pages.managemen_akun.auditor.edit',compact('item'));
     }
 
     /**
@@ -72,7 +74,25 @@ class ManagemenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = User::findorfail($id);
+
+        $update->name = $request->name;
+        $update->nip = $request->nip;
+        $update->alamat = $request->alamat;
+        $update->jabatan = $request->jabatan;
+        $update->no_hp = $request->no_hp;
+        $update->email = $request->email;
+        $update->password = Hash::make($request->get('password'));
+        if ($request->hasFile('profil')) {
+            $nm = $request->profil;
+            $namaFile = time() . rand(100, 999) . "." . $nm->getClientOriginalExtension();
+            $update->profil = $namaFile;
+            $nm->move(public_path() . '/img', $namaFile);
+        }else{
+            $update->profil = 'default.png';
+        }
+        $update->update();
+        return redirect()->route('akun-auditor.index');
     }
 
     /**
@@ -83,6 +103,16 @@ class ManagemenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = User::findOrFail($id);
+
+        $file = public_path('/img/').$delete->gambar;
+        //cek jika ada gambar
+        if (file_exists($file)){
+            //maka delete file diforder public/img
+            @unlink($file);
+        }
+        //delete data didatabase
+        $delete->delete();
+        return back();
     }
 }
