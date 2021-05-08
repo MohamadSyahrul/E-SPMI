@@ -46,21 +46,35 @@
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
                         <a class="flex items-center mr-3 text-theme-9" data-toggle="modal"
-                            data-target="#medium-modal-size-preview" href="javascript:;"> <i data-feather="eye"
+                            data-target="#medium-modal-size-preview{{ $item->id }}" href="javascript:;"> <i data-feather="eye"
                                 class="w-4 h-4 mr-1"></i> Show </a>
 
                         <a class="flex items-center mr-3 text-theme-7" href="{{route('akun-auditor.edit',  $item->id)}}"> <i data-feather="check-square"
                                 class="w-4 h-4 mr-1"></i> Edit </a>
-                        {{-- <a class="flex items-center mr-2" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i>
-                            Delete </a> --}}
-                            <form action="{{route('akun-auditor.destroy', $item->id)}}" method="post">
-                                @method('delete')
-                                @csrf
-                                <button type="button" class="flex items-center mr-2">
-                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i>
-                                    Delete
-                                </button>
-                            </form>
+
+                                <a href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview{{ $item->id }}" class="flex items-center mr-3">
+                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i>Delete</a>
+                           
+                            <div class="modal" id="delete-modal-preview{{ $item->id }}">
+                                <div class="modal__content">
+                                    <form action="{{route('akun-auditor.destroy', $item->id)}}" method="post" enctype="multipart/form-data">
+                                        @method('delete')
+                                        @csrf
+                                        <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                                            <div class="text-3xl mt-5">Apakah Kamu Yakin?</div>
+                                            <div class="text-gray-600 mt-2">Apakah Anda benar-benar ingin menghapus data ini? Proses ini tidak dapat dibatalkan.</div>
+                                        </div>
+                                        <div class="px-5 pb-8 text-center"> 
+                                            <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
+                                            
+                                            <button type="submit" class="button w-24 bg-theme-6 text-white">Delete</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+                            
                     </div>
                 </td>
             </tr>
@@ -70,11 +84,12 @@
 </div>
 
 {{-- modal --}}
-<div class="modal" id="medium-modal-size-preview">
+@foreach ($items as $item)
+
+<div class="modal" id="medium-modal-size-preview{{ $item->id }}">
     <div class="modal__content p-10 text-center">
         <div class="table-responsive">
             <table class="table table-auto">
-                @foreach ($items as $item)
                 <tr class="bg-blue-200">
                     <th>NIP</th>
                     <td class="float-right text-theme-10">{{ $item->nip }}</td>
@@ -114,9 +129,10 @@
                         <img alt="foto profil" class="rounded-full w-27 h-27" src="{{ asset('img/'. $item->profil ) }}">
                     </td>
                 </tr>
-                @endforeach
             </table>
         </div>
     </div>
 </div>
+@endforeach
+
 @endsection

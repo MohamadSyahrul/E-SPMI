@@ -6,19 +6,17 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ManagemenController extends Controller
+class StafController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    // akun auditor
     public function index()
     {
-        $items = User::where('level', 'auditor')->get();
-        return view('pages.managemen_akun.auditor.index',[
+        $items = User::where('level', 'staf')->get();
+        return view('pages.managemen_akun.staf.index',[
             'items'=>$items
         ]);
     }
@@ -64,7 +62,7 @@ class ManagemenController extends Controller
     public function edit($id)
     {
         $item = User::findOrFail($id);
-        return view('pages.managemen_akun.auditor.edit',compact('item'));
+        return view('pages.managemen_akun.staf.edit',compact('item'));
     }
 
     /**
@@ -94,7 +92,7 @@ class ManagemenController extends Controller
             $update->profil = 'default.png';
         }
         $update->update();
-        return redirect()->route('akun-auditor.index');
+        return redirect()->route('akun-staf.index');
     }
 
     /**

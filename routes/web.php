@@ -25,7 +25,13 @@ Route::middleware(['auth'])
     Route::get('/',function () {
         return view('pages.dashboard');
     });
-    Route::resource('akun-auditor', 'ManagemenController');
+
+    Route::prefix('managemen-akun')->group(function () {
+        Route::resource('akun-auditor', 'ManagemenController');
+        Route::resource('akun-staf', 'StafController');
+        Route::resource('akun-wakil-ketua', 'WakilketuaController');
+
+    });
 });
 
 

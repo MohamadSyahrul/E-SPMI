@@ -12,11 +12,11 @@
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="menu">
+        <a href="javascript:;" class="menu {{ Request::is('managemen-akun/*') ? 'menu--active' : '' }}">
             <div class="menu__icon"> <i data-feather="tool"></i> </div>
             <div class="menu__title"> Managemen Akun <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
         </a>
-        <ul class="">
+        <ul class="{{ Request::is('managemen-akun/*') ? 'menu__sub-open' : '' }}">
             <li>
                 <a href="{{route('akun-auditor.index')}}" class="menu {{ Request::is('akun-auditor') ? 'menu--active' : '' }}">
                     <div class="menu__icon"> <i data-feather="user"></i> </div>
@@ -24,13 +24,13 @@
                 </a>
             </li>
             <li>
-                <a href="simple-menu-dashboard.html" class="menu">
+                <a href="{{route('akun-wakil-ketua.index')}}" class="menu {{ Request::is('akun-wakil-ketua') ? 'menu--active' : '' }}">
                     <div class="menu__icon"> <i data-feather="user"></i> </div>
                     <div class="menu__title"> Wakil Ketua </div>
                 </a>
             </li>
             <li>
-                <a href="top-menu-dashboard.html" class="menu">
+                <a href="{{route('akun-staf.index')}}" class="menu {{ Request::is('akun-staf') ? 'menu--active' : '' }}">
                     <div class="menu__icon"> <i data-feather="user"></i> </div>
                     <div class="menu__title"> Staf </div>
                 </a>

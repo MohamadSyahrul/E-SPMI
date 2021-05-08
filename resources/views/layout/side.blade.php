@@ -11,11 +11,11 @@
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="side-menu">
+        <a href="javascript:;" class="side-menu {{ Request::is('managemen-akun/*') ? 'side-menu--active' : '' }}">
             <div class="side-menu__icon"> <i data-feather="tool"></i> </div>
             <div class="side-menu__title"> Managemen Akun <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>
-        <ul class="side-menu__sub-open">
+        <ul class="{{ Request::is('managemen-akun/*') ? 'side-menu__sub-open' : '' }}">
             <li>
                 <a href="{{route ('akun-auditor.index')}}" class="side-menu {{ Request::is('akun-auditor') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="user"></i> </div>
@@ -23,13 +23,13 @@
                 </a>
             </li>
             <li>
-                <a href="simple-menu-dashboard.html" class="side-menu">
+                <a href="{{route ('akun-wakil-ketua.index')}}" class="side-menu {{ Request::is('akun-wakil-ketua') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="user"></i> </div>
                     <div class="side-menu__title"> Wakil Ketua </div>
                 </a>
             </li>
             <li>
-                <a href="top-menu-dashboard.html" class="side-menu">
+                <a href="{{route ('akun-staf.index')}}" class="side-menu  {{ Request::is('akun-staf') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="user"></i> </div>
                     <div class="side-menu__title"> Staf </div>
                 </a>

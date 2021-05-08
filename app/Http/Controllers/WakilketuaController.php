@@ -6,20 +6,18 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ManagemenController extends Controller
+class WakilketuaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    // akun auditor
     public function index()
     {
-        $items = User::where('level', 'auditor')->get();
-        return view('pages.managemen_akun.auditor.index',[
-            'items'=>$items
+        $waketum = User::where('level', 'wakil_ketua')->get();
+        return view('pages.managemen_akun.wakil_ketua.index',[
+            'waketum'=>$waketum
         ]);
     }
 
@@ -64,7 +62,7 @@ class ManagemenController extends Controller
     public function edit($id)
     {
         $item = User::findOrFail($id);
-        return view('pages.managemen_akun.auditor.edit',compact('item'));
+        return view('pages.managemen_akun.wakil_ketua.edit',compact('item'));
     }
 
     /**
@@ -94,7 +92,7 @@ class ManagemenController extends Controller
             $update->profil = 'default.png';
         }
         $update->update();
-        return redirect()->route('akun-auditor.index');
+        return redirect()->route('akun-wakil-ketua.index');
     }
 
     /**

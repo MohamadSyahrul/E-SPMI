@@ -26,7 +26,7 @@
                     <div class="intro-x text-6xl font-medium">500</div>
                     <div class="intro-x text-xl lg:text-3xl font-medium">Oopps!! There wan an error. Please try agin later.</div>
                     <div class="intro-x text-lg mt-3">Internal server error</div><br>
-                    <a href="{{'login'}}" class="intro-x button button--lg border border-white mt-10">Back to Home</a>
+                    <a href="{{url('/')}}" class="intro-x button button--lg border border-white mt-10">Back to Home</a>
                 </div>
             </div>
             <!-- END: Error Page -->

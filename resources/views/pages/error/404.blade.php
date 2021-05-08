@@ -25,7 +25,7 @@
                     <div class="intro-x text-6xl font-medium">404</div>
                     <div class="intro-x text-xl lg:text-3xl font-medium">Oops. This page has gone missing.</div>
                     <div class="intro-x text-lg mt-3">You may have mistyped the address or the page may have moved.</div><br>
-                    <a href="{{'login'}}" class="intro-x button button--lg border border-white mt-10">Back to Home</a>
+                    <a href="{{url('/')}}" class="intro-x button button--lg border border-white mt-10">Back to Home</a>
                 </div>
             </div>
             <!-- END: Error Page -->

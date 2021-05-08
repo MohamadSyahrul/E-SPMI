@@ -20,9 +20,9 @@
                                     src="{{asset('img/'. $item->profil)}}">
                             </div>
                             <div class="w-40 mx-auto cursor-pointer relative mt-5">
-                                {{-- <button type="button" class="button w-full bg-theme-1 text-white">Change Photo</button> --}}
+                                <button type="button" class="button w-full bg-theme-1 text-white">Change Photo</button>
                                 {{-- <input type="file" name="profil" class="w-full h-full top-0 left-0 absolute opacity-0"> --}}
-                                <input type="file" class="form-control file-upload-info" name="profil" placeholder="Upload Gambar">
+                                <input type="file" class="w-full h-full top-0 left-0 absolute opacity-0" name="profil" placeholder="Upload Gambar">
 
                             </div>
                         </div>
