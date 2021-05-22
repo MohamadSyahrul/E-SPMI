@@ -70,7 +70,7 @@
         </ul>
     </li>
     <li>
-        <a href="login-login.html" class="side-menu">
+        <a href="{{route('standar-nasional.index')}}" class="side-menu">
             <div class="side-menu__icon"> <i data-feather="globe"></i> </div>
             <div class="side-menu__title"> Standar Nasional </div>
         </a>

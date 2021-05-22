@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,8 @@ Route::middleware(['auth'])
         Route::resource('akun-auditor', 'ManagemenController');
         Route::resource('akun-staf', 'StafController');
         Route::resource('akun-wakil-ketua', 'WakilketuaController');
-
     });
+    Route::resource('standar-nasional', 'StandarnasionalController');
 });
 
 

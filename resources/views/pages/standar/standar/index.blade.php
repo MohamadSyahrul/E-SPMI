@@ -3,10 +3,10 @@
 
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Data Standar Nasional
+        Data Standar 
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a href="{{ route('standar-nasional.create')}}" class="button text-white bg-theme-1 shadow-md mr-2">Add Standar Nasional</a>
+        <a href="{{ route('standar.create')}}" class="button text-white bg-theme-1 shadow-md mr-2">Add Standar</a>
        
     </div>
 </div>
