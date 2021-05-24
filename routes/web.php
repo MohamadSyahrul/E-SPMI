@@ -33,6 +33,12 @@ Route::middleware(['auth'])
         Route::resource('akun-wakil-ketua', 'WakilketuaController');
     });
     Route::resource('standar-nasional', 'StandarnasionalController');
+
+    // waketu
+    Route::resource('jabatan', 'Waketu\JabatanController');
+    Route::resource('penanggung-jawab', 'Waketu\PenanggungjwbController');
+
+
 });
 
 

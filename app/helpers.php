@@ -60,6 +60,12 @@ function generateKodeSN($kode_bawaan, $tanggal_sn){
 
     return $kode = $nama_sn . '.' . $tanggal_sn . '.' . $bulan;
 }
+
+// function generate kode jabatan
+function generateKodeJBT($kode_jabatan){
+    return $kode = strtoupper(preg_replace("/[^bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/", "", $kode_jabatan));
+
+}
 /**Function mendapatkan bilangan romawi untuk generate */
 function getRomawi($bln){
     switch ($bln){

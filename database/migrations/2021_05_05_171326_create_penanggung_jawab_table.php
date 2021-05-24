@@ -15,11 +15,11 @@ class CreatePenanggungJawabTable extends Migration
     {
         Schema::create('penanggung_jawab', function (Blueprint $table) {
             $table->id();
-            $table->integer('nik');
+            $table->integer('nik', 25);
             $table->integer('id_jabatan');
             $table->string('nama');
             $table->string('email')->unique();
-            $table->integer('no_hp');
+            $table->integer('no_hp', 12);
             $table->text('profil');
             $table->timestamps();
         });

@@ -70,7 +70,7 @@
         </ul>
     </li>
     <li>
-        <a href="{{route('standar-nasional.index')}}" class="side-menu">
+        <a href="{{route('standar-nasional.index')}}" class="side-menu {{ Request::is('standar-nasional', 'standar-nasional/*') ? 'side-menu--active' : null }}">
             <div class="side-menu__icon"> <i data-feather="globe"></i> </div>
             <div class="side-menu__title"> Standar Nasional </div>
         </a>
@@ -101,4 +101,38 @@
             </li>
         </ul>
     </li>
+
+    {{-- wakil ketua --}}
+    <li>
+        <a href="{{ route('jabatan.index')}}" class="side-menu {{ Request::is('jabatan', 'jabatan/*') ? 'side-menu--active' : null }}">
+            <div class="side-menu__icon"> <i data-feather="bar-chart"></i> </div>
+            <div class="side-menu__title"> Jabatan </div>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('penanggung-jawab.index')}}" class="side-menu {{ Request::is('penanggung-jawab', 'penanggung-jawab/*') ? 'side-menu--active' : null }}">
+            <div class="side-menu__icon"> <i data-feather="target"></i> </div>
+            <div class="side-menu__title"> Penanggung Jawab </div>
+        </a>
+    </li>
+    <li>
+        <a href="" class="side-menu">
+            <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
+            <div class="side-menu__title"> Deskripsi Pekerjaan </div>
+        </a>
+    </li>
+    <li>
+        <a href="" class="side-menu">
+            <div class="side-menu__icon"> <i data-feather="user"></i> </div>
+            <div class="side-menu__title"> Daftar Staf </div>
+        </a>
+    </li>
+    <li>
+        <a href="" class="side-menu">
+            <div class="side-menu__icon"> <i data-feather="briefcase"></i> </div>
+            <div class="side-menu__title"> Unit kerja </div>
+        </a>
+    </li>
+    {{-- end wakil ketua --}}
+    
 </ul>
