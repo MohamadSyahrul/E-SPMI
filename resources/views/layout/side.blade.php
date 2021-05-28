@@ -122,13 +122,13 @@
         </a>
     </li>
     <li>
-        <a href="" class="side-menu">
+        <a href="{{ route('data-staf')}}" class="side-menu  {{ Request::is('data-staf', 'data-staf/*') ? 'side-menu--active' : null }}">
             <div class="side-menu__icon"> <i data-feather="user"></i> </div>
             <div class="side-menu__title"> Daftar Staf </div>
         </a>
     </li>
     <li>
-        <a href="" class="side-menu">
+        <a href="{{ route('unit.index')}}" class="side-menu {{ Request::is('unit', 'unit/*') ? 'side-menu--active' : null }}">
             <div class="side-menu__icon"> <i data-feather="briefcase"></i> </div>
             <div class="side-menu__title"> Unit kerja </div>
         </a>

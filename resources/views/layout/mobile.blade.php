@@ -111,7 +111,7 @@
     </li>
 
     <li>
-        <a href="side-menu-inbox.html" class="menu">
+        <a href="{{route('penanggung-jawab.index')}}" class="menu {{ Request::is('penanggung-jawab','penanggung-jawab/*') ? 'menu--active' : '' }}">
             <div class="menu__icon"> <i data-feather="bar-chart"></i> </div>
             <div class="menu__title"> Penanggung Jawab </div>
         </a>
@@ -123,13 +123,13 @@
         </a>
     </li>
     <li>
-        <a href="side-menu-inbox.html" class="menu">
+        <a href="{{route('data-staf')}}" class="menu {{ Request::is('data-staf','data-staf/*') ? 'menu--active' : '' }}">
             <div class="menu__icon"> <i data-feather="user"></i> </div>
             <div class="menu__title"> Daftar Staf </div>
         </a>
     </li>
     <li>
-        <a href="side-menu-inbox.html" class="menu">
+        <a href="{{route('unit.index')}}" class="menu {{ Request::is('unit','unit/*') ? 'menu--active' : '' }}">
             <div class="menu__icon"> <i data-feather="briefcase"></i> </div>
             <div class="menu__title"> Unit </div>
         </a>

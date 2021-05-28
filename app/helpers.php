@@ -66,6 +66,10 @@ function generateKodeJBT($kode_jabatan){
     return $kode = strtoupper(preg_replace("/[^bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/", "", $kode_jabatan));
 
 }
+// function generate kode unit
+function generateKodeUNT($kode_unit){
+    return $kode = strtoupper(preg_replace("/[^bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/", "", $kode_unit));
+}
 /**Function mendapatkan bilangan romawi untuk generate */
 function getRomawi($bln){
     switch ($bln){

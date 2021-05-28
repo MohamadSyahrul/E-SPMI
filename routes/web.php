@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,12 @@ Route::middleware(['auth'])
     // waketu
     Route::resource('jabatan', 'Waketu\JabatanController');
     Route::resource('penanggung-jawab', 'Waketu\PenanggungjwbController');
+    Route::resource('unit', 'Waketu\UnitController');
+    Route::get('data-staf', function () {
+        $items = User::where('level', 'staf')->get();
+        return view('pages.wakilketua.staf.index', compact('items'));
+    })->name('data-staf');
+
 
 
 });
