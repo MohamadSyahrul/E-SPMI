@@ -17,6 +17,11 @@ class Jabatan extends Model
     }
     public function unit()
     {
+    	return $this->hasOne(Unit::class, 'id_jabatan', 'id');
+    }
+
+    public function jobdesk()
+    {
     	return $this->hasMany(Unit::class, 'id_jabatan', 'id');
     }
 }

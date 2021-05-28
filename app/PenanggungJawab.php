@@ -18,6 +18,10 @@ class PenanggungJawab extends Model
     }
     public function Unit()
     {
-    	return $this->hasMany(Unit::class, 'id_penanggung_jawab', 'id');
+    	return $this->hasOne(Unit::class, 'id_penanggung_jawab', 'id');
+    }
+    public function job_desk()
+    {
+    	return $this->hasMany(Unit::class, 'id_jabatan', 'id');
     }
 }

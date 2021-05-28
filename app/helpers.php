@@ -70,6 +70,16 @@ function generateKodeJBT($kode_jabatan){
 function generateKodeUNT($kode_unit){
     return $kode = strtoupper(preg_replace("/[^bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/", "", $kode_unit));
 }
+// function generate kode job
+function generateKodeJD($kode_jd,  $tanggal_jd){
+    $date = strtotime($tanggal_jd);
+    $date_format = date('Y-m-d',$date);
+    $tanggal_jd = substr($date_format,8,2);
+    $bulan = substr($date_format,5,2);
+    $nama_jd = strtoupper(preg_replace("/[^JBD]/", "", $kode_jd));
+    return $kode = $nama_jd . '.' . $tanggal_jd . '.' . $bulan;
+
+}
 /**Function mendapatkan bilangan romawi untuk generate */
 function getRomawi($bln){
     switch ($bln){

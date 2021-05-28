@@ -43,6 +43,8 @@ Route::middleware(['auth'])
         $items = User::where('level', 'staf')->get();
         return view('pages.wakilketua.staf.index', compact('items'));
     })->name('data-staf');
+    Route::resource('deskripsi-pekerjaan', 'Waketu\DisperController');
+    
 
 
 

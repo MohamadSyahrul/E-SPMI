@@ -117,7 +117,7 @@
         </a>
     </li>
     <li>
-        <a href="side-menu-inbox.html" class="menu">
+        <a href="{{route('deskripsi-pekerjaan.index')}}" class="menu {{ Request::is('deskripsi-pekerjaan','deskripsi-pekerjaan/*') ? 'menu--active' : '' }}">
             <div class="menu__icon"> <i data-feather="file-text"></i> </div>
             <div class="menu__title"> Deskripsi Pekerjaan </div>
         </a>
