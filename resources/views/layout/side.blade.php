@@ -42,7 +42,7 @@
             <div class="side-menu__icon"> <i data-feather="user-check"></i> </div>
             <div class="side-menu__title"> UPMI <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>
-        <ul class="">
+        <ul class="{{ Request::is('upmi/*') ? 'side-menu__sub-open' : '' }}">
             <li>
                 <a href="side-menu-crud-data-list.html" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="clipboard"></i> </div>
@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li>
-                <a href="side-menu-crud-form.html" class="side-menu">
+                <a href="{{route ('jadwal-audit.index')}}" class="side-menu {{ Request::is('jadwal-audit') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
                     <div class="side-menu__title"> Jadwal Audit </div>
                 </a>
@@ -76,7 +76,7 @@
         </a>
     </li>
     <li>
-        <a href="login-login.html" class="side-menu">
+        <a href="{{route('standar.index')}}" class="side-menu {{ Request::is('standar', 'standar/*') ? 'side-menu--active' : null }}">
             <div class="side-menu__icon"> <i data-feather="tag"></i> </div>
             <div class="side-menu__title"> Standar </div>
         </a>

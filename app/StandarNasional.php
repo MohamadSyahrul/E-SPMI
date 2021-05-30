@@ -11,4 +11,9 @@ class StandarNasional extends Model
     protected $fillable = [
         'kode_sn', 'nama_sn','tanggal_sn'
     ];
+
+    public function standar()
+    {
+        return $this->hasOne( Standar::class, 'id_sn', 'id' );
+    }
 }

@@ -20,7 +20,7 @@
                     <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
                         <div class="col-span-12 sm:col-span-6">
                             <label>NIP</label>
-                            <input type="number" name="nik" onKeyPress="if(this.value.length==25) return false;" class="input w-full border mt-2 flex-1" placeholder="Masukan NIP">
+                            <input type="number" name="nik" onKeyPress="if(this.value.length==19) return false;" class="input w-full border mt-2 flex-1" placeholder="Masukan NIP">
                         </div>
                         <div class="col-span-12 sm:col-span-6"> 
                             <label>Jabatan</label> 

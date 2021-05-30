@@ -32,7 +32,7 @@
                             <label>NIP</label>
                             <input type="number" class="input w-full border bg-gray-100 mt-2"
                                 name="nik" style="color: slategrey;" value="{{ $item->nik }}"
-                                placeholder="Masukan NIP Anda">
+                                placeholder="Masukan NIP Anda" onKeyPress="if(this.value.length==19) return false;" >
                         </div>
                         <div> 
                             <label>Jabatan</label> 
@@ -60,7 +60,7 @@
                             <input type="number" name="no_hp"
                                 class="input w-full border bg-gray-100 mt-2"
                                 style="color: slategrey;" value="{{ $item->no_hp }}"
-                                placeholder="Masukan Nomor Telepon">
+                                placeholder="Masukan Nomor Telepon" onKeyPress="if(this.value.length==12) return false;" >
                         </div>
                         
                         <div class="text-right mt-5">

@@ -17,7 +17,7 @@ class CreateStandarTable extends Migration
             $table->id();
             $table->integer('id_unit');
             $table->integer('id_sn');
-            $table->integer('id_kode_sn');
+            $table->string('kode_standar');
             $table->string('nama');
             $table->integer('id_penanggung_jawab');
             $table->date('tgl_standar');

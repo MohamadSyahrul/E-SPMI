@@ -37,9 +37,9 @@
                 <td class="text-center border-b">
                     {{ $item->jabatan_jd->nama }}
                 </td>
-                </td>
                 <td class="text-center border-b">
                     {!! $item->deskripsi !!}
+                </td>
                 <td class="text-center border-b">
                     {{ $item->penanggung_jawab_jd->nama }}
                 </td>

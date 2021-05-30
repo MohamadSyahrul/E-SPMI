@@ -22,6 +22,11 @@ class PenanggungJawab extends Model
     }
     public function job_desk()
     {
-    	return $this->hasMany(Unit::class, 'id_jabatan', 'id');
+    	return $this->hasMany(JobDesk::class, 'id_penanggung_jawab', 'id');
     }
+    public function standar()
+    {
+    	return $this->hasOne(Standar::class, 'id_penanggung_jawab', 'id');
+    }
+    
 }

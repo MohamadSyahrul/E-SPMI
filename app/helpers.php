@@ -71,13 +71,38 @@ function generateKodeUNT($kode_unit){
     return $kode = strtoupper(preg_replace("/[^bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/", "", $kode_unit));
 }
 // function generate kode job
-function generateKodeJD($kode_jd,  $tanggal_jd){
+function generateKodeJD($tanggal_jd)
+{
     $date = strtotime($tanggal_jd);
     $date_format = date('Y-m-d',$date);
     $tanggal_jd = substr($date_format,8,2);
     $bulan = substr($date_format,5,2);
-    $nama_jd = strtoupper(preg_replace("/[^JBD]/", "", $kode_jd));
+    $nama_jd = strtoupper("JBD");
     return $kode = $nama_jd . '.' . $tanggal_jd . '.' . $bulan;
+
+}
+// function generate kode job
+function generateKodeS($tgl_standar)
+{
+    $date = strtotime($tgl_standar);
+    $date_format = date('Y-m-d',$date);
+    $tgl_standar = substr($date_format,8,2);
+    $bulan = substr($date_format,5,2);
+    $nama_standar = strtoupper("SO");
+    return $kode = $nama_standar . '.' . $tgl_standar . '.' . $bulan;
+
+}
+// function generate kode jadwal
+function generateKodeJDWL($tgl_mulai, $tgl_selesai)
+{
+    $date = strtotime($tgl_mulai);
+    $waktu = strtotime($tgl_selesai);
+    $date_format = date('Y-m-d',$date);
+    $dateFormat = date('Y-m-d',$waktu);
+    $tgl_mulai = substr($date_format,8,2);
+    $tgl_selesai = substr($dateFormat,8,2);
+    $nama_jadwal = strtoupper("JDW");
+    return $kode = $nama_jadwal . '.' . $tgl_mulai . '.' . $tgl_selesai;
 
 }
 /**Function mendapatkan bilangan romawi untuk generate */

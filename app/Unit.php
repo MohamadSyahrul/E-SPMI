@@ -20,4 +20,8 @@ class Unit extends Model
     {
         return $this->belongsTo( PenanggungJawab::class, 'id_penanggung_jawab', 'id' );
     }
+    public function standar()
+    {
+    	return $this->hasOne(Standar::class, 'id_unit', 'id');
+    }
 }

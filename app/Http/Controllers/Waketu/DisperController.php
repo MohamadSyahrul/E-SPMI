@@ -45,7 +45,7 @@ class DisperController extends Controller
     public function store(DisperRequest $request)
     {           
             $jobdesk = $request->all();
-            $jobdesk['kode_job'] = generateKodeJD($request->deskripsi,$request->tgl_terima);
+            $jobdesk['kode_job'] = generateKodeJD($request->tgl_terima);
             $jobdesk['tgl_terima'] = dateFormat($request->tgl_terima);
 
             JobDesk::create($jobdesk);
@@ -88,7 +88,7 @@ class DisperController extends Controller
     public function update(DisperRequest $request, $id)
     {
             $jd = $request->all();
-            $jd['kode_job'] = generateKodeJD($request->deskripsi,$request->tgl_terima);
+            $jd['kode_job'] = generateKodeJD($request->tgl_terima);
             $jd['tgl_terima'] = dateFormat($request->tgl_terima);
             $item = JobDesk::findOrFail($id);
             $item->update($jd);

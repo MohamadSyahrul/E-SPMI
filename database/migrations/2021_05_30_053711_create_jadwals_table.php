@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenanggungJawabTable extends Migration
+class CreateJadwalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreatePenanggungJawabTable extends Migration
      */
     public function up()
     {
-        Schema::create('penanggung_jawab', function (Blueprint $table) {
+        Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('nik');
-            $table->integer('id_jabatan');
-            $table->string('nama');
-            $table->string('email')->unique();
-            $table->bigInteger('no_hp');
-            $table->text('profil');
+            $table->string('kode_jadwal');
+            $table->integer('id_standar');
+            $table->integer('id_auditor');
+            $table->string('prodi');
+            $table->string('tahun');
+            $table->date('tgl_mulai');
+            $table->date('tgl_selesai');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreatePenanggungJawabTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penanggung_jawab');
+        Schema::dropIfExists('jadwals');
     }
 }

@@ -37,4 +37,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function jadwal()
+    {
+        return $this->hasMany( Jadwal::class, 'id_auditor', 'id' );
+    }
 }

@@ -34,6 +34,12 @@ Route::middleware(['auth'])
         Route::resource('akun-wakil-ketua', 'WakilketuaController');
     });
     Route::resource('standar-nasional', 'StandarnasionalController');
+    Route::resource('standar', 'StandarController');
+    
+    Route::prefix('upmi')->group(function () {
+        Route::resource('jadwal-audit', 'UPMI\JadwalController');
+    });
+
 
     // waketu
     Route::resource('jabatan', 'Waketu\JabatanController');
