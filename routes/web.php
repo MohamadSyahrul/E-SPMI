@@ -51,6 +51,10 @@ Route::middleware(['auth'])
     })->name('data-staf');
     Route::resource('deskripsi-pekerjaan', 'Waketu\DisperController');
     
+// staf
+    Route::resource('butir-sop', 'Staf\ButirController');
+    Route::resource('dokumen-pendukung', 'Staf\DokumenController');
+    
 
 
 

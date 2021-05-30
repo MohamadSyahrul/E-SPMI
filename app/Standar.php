@@ -28,4 +28,8 @@ class Standar extends Model
     {
         return $this->hasMany( Jadwal::class, 'id_standar', 'id' );
     }
+    public function dokumen()
+    {
+        return $this->hasOne( Dokumenpendukung::class, 'id_standar', 'id' );
+    }
 }

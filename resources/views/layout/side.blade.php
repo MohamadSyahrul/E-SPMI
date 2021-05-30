@@ -134,5 +134,18 @@
         </a>
     </li>
     {{-- end wakil ketua --}}
-    
+    {{-- staf --}}
+    <li>
+        <a href="{{ route('butir-sop.index')}}" class="side-menu {{ Request::is('butir-sop', 'butir-sop/*') ? 'side-menu--active' : null }}">
+            <div class="side-menu__icon"> <i data-feather="sliders"></i> </div>
+            <div class="side-menu__title"> Butir Standar </div>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('dokumen-pendukung.index')}}" class="side-menu {{ Request::is('dokumen-pendukung', 'dokumen-pendukung/*') ? 'side-menu--active' : null }}">
+            <div class="side-menu__icon"> <i data-feather="file-plus"></i> </div>
+            <div class="side-menu__title"> Dokumen Pendukung </div>
+        </a>
+    </li>
+    {{-- end staf --}}
 </ul>

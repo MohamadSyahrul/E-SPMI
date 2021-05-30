@@ -105,6 +105,19 @@ function generateKodeJDWL($tgl_mulai, $tgl_selesai)
     return $kode = $nama_jadwal . '.' . $tgl_mulai . '.' . $tgl_selesai;
 
 }
+// function generate kode jadwal
+function generateKodeBTR($tgl_butir)
+{
+    $waktu = strtotime($tgl_butir);
+    $dateFormat = date('Y-m-d',$waktu);
+    $year = date('y',$waktu);
+    $tgl_butir = substr($dateFormat,8,2);
+    $bulan = substr($dateFormat,5,2);
+    // $tahun = substr($year, 0, 4);
+    $nama_btr = strtoupper("BTR");
+    return $kode = $nama_btr . '.' . $tgl_butir . '.' . $bulan  . '.' . $year;
+
+}
 /**Function mendapatkan bilangan romawi untuk generate */
 function getRomawi($bln){
     switch ($bln){
@@ -173,11 +186,12 @@ function masaPakaiAset($masa_pakai){
 
 }
 
-function storeGambar($user){
+function storeDokumen($user){
     
+        
         $nm = $user;
-        $namaFile = time() . rand(100, 999) . "." .$nm->getClientOriginalExtension();
-        $nm->move(public_path() . '/img', $namaFile);
+        $namaFile = time().rand(100,999).".".$nm->getClientOriginalExtension();
+        $nm->move(public_path() . '/dokumen', $namaFile);
     
     return $namaFile;
 
