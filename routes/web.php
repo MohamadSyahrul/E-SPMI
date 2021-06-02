@@ -38,6 +38,9 @@ Route::middleware(['auth'])
     
     Route::prefix('upmi')->group(function () {
         Route::resource('jadwal-audit', 'UPMI\JadwalController');
+        Route::resource('isian-upmi', 'UPMI\IsianController');
+        Route::resource('deskripsi', 'UPMI\DeskripsiController');
+        Route::resource('cetak-intrumen', 'UPMI\CetakauditController');
     });
 
 

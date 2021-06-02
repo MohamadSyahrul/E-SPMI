@@ -80,7 +80,7 @@
             @foreach ($item as $items)
             <tr>
                 <td class="text-center border-b">
-                    {{ $items->id_standar }}
+                    {{ $items->standar_btr->nama }}
                 </td>
                 <td class="text-center border-b">
                     {{ $items->kode_butir }}

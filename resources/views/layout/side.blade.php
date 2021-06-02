@@ -10,6 +10,7 @@
             <div class="side-menu__title"> Dashboard </div>
         </a>
     </li>
+    @if(Auth::user()->level == 'admin')
     <li>
         <a href="javascript:;" class="side-menu {{ Request::is('managemen-akun/*') ? 'side-menu--active' : '' }}">
             <div class="side-menu__icon"> <i data-feather="tool"></i> </div>
@@ -44,13 +45,13 @@
         </a>
         <ul class="{{ Request::is('upmi/*') ? 'side-menu__sub-open' : '' }}">
             <li>
-                <a href="side-menu-crud-data-list.html" class="side-menu">
+                <a href="{{route ('isian-upmi.index')}}" class="side-menu {{ Request::is('isian-upmi') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="clipboard"></i> </div>
                     <div class="side-menu__title"> Tambah Deskripsi </div>
                 </a>
             </li>
             <li>
-                <a href="side-menu-crud-form.html" class="side-menu">
+                <a href="{{route ('deskripsi.index')}}" class="side-menu {{ Request::is('deskripsi') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="align-justify"></i> </div>
                     <div class="side-menu__title"> Deskripsi </div>
                 </a>
@@ -62,7 +63,7 @@
                 </a>
             </li>
             <li>
-                <a href="side-menu-crud-form.html" class="side-menu">
+                <a href="{{route ('cetak-intrumen.index')}}" class="side-menu {{ Request::is('cetak-intrumen') ? 'side-menu--active' : '' }}">
                     <div class="side-menu__icon"> <i data-feather="printer"></i> </div>
                     <div class="side-menu__title"> Cetak Instrumen Audit </div>
                 </a>
@@ -101,7 +102,8 @@
             </li>
         </ul>
     </li>
-
+    @endif
+    @if(Auth::user()->level == 'wakil_ketua')
     {{-- wakil ketua --}}
     <li>
         <a href="{{ route('jabatan.index')}}" class="side-menu {{ Request::is('jabatan', 'jabatan/*') ? 'side-menu--active' : null }}">
@@ -134,6 +136,9 @@
         </a>
     </li>
     {{-- end wakil ketua --}}
+    @endif
+
+    @if(Auth::user()->level == 'staf')
     {{-- staf --}}
     <li>
         <a href="{{ route('butir-sop.index')}}" class="side-menu {{ Request::is('butir-sop', 'butir-sop/*') ? 'side-menu--active' : null }}">
@@ -148,4 +153,5 @@
         </a>
     </li>
     {{-- end staf --}}
+    @endif
 </ul>

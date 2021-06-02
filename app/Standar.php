@@ -32,4 +32,12 @@ class Standar extends Model
     {
         return $this->hasOne( Dokumenpendukung::class, 'id_standar', 'id' );
     }
+    public function butir()
+    {
+    	return $this->hasMany(Butirstandar::class, 'id_standar', 'id');
+    }
+    public function deskriptor()
+    {
+    	return $this->hasMany(Deskriptor::class, 'id_standar', 'id');
+    }
 }

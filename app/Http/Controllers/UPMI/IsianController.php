@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Staf;
+namespace App\Http\Controllers\UPMI;
 
-use App\Butirstandar;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ButirRequest;
 use App\Standar;
+use App\Butirstandar;
+use App\Deskriptor;
+// use Dompdf\Dompdf;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\DeskriptorRequest;
 
-class ButirController extends Controller
+class IsianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +19,10 @@ class ButirController extends Controller
      */
     public function index()
     {
-       $standar = Standar::all();
-       $item = Butirstandar::with(['standar_btr'])->get();
-       return view('pages.staf.butir.index', compact('item','standar'));
+        $standar = Standar::all();
+        // $pdf = PDF::setPaper('A4','potrait');
+        $item = Butirstandar::with(['standar_btr'])->get();
+       return view('pages.upmi.isian', compact('item','standar'));
     }
 
     /**
@@ -38,14 +41,11 @@ class ButirController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ButirRequest $request)
+    public function store(DeskriptorRequest $request)
     {
-        $btr = $request->all();
-        $btr['kode_butir'] = generateKodeBTR($request->tgl_butir);
-        $btr['tgl_butir'] = dateFormat($request->tgl_butir);
-        
-        Butirstandar::create($btr);
-        return redirect()->route('butir-sop.index');
+        $desk = $request->all();
+        Deskriptor::create($desk);
+        return redirect()->route('isian-upmi.index');
     }
 
     /**
@@ -67,9 +67,7 @@ class ButirController extends Controller
      */
     public function edit($id)
     {
-        $standar = Standar::all();
-        $item = Butirstandar::findOrFail($id);
-        return view('pages.staf.butir.edit', compact('standar','item'));
+        //
     }
 
     /**
@@ -79,14 +77,9 @@ class ButirController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ButirRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $btr = $request->all();
-        $btr['kode_butir'] = generateKodeBTR($request->tgl_butir);
-        $btr['tgl_butir'] = dateFormat($request->tgl_butir);
-        $item = Butirstandar::findOrFail($id);
-        $item->update($btr);
-        return redirect()->route('butir-sop.index');  
+        //
     }
 
     /**
@@ -97,8 +90,6 @@ class ButirController extends Controller
      */
     public function destroy($id)
     {
-        $item = Butirstandar::findOrFail($id);
-        $item->delete();
-        return redirect()->route('butir-sop.index');
+        //
     }
 }

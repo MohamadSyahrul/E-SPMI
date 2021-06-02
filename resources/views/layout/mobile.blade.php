@@ -44,13 +44,13 @@
         </a>
         <ul class="{{ Request::is('upmi/*') ? 'menu__sub-open' : '' }}">
             <li>
-                <a href="side-menu-crud-data-list.html" class="menu">
+                <a href="{{route('isian-upmi.index')}}" class="menu {{ Request::is('isian-upmi/*') ? 'menu--active' : '' }}">
                     <div class="menu__icon"> <i data-feather="clipboard"></i> </div>
                     <div class="menu__title"> Tambah Deskripsi </div>
                 </a>
             </li>
             <li>
-                <a href="side-menu-crud-form.html" class="menu">
+                <a href="{{route('deskripsi.index')}}" class="menu {{ Request::is('deskripsi/*') ? 'menu--active' : '' }}">
                     <div class="menu__icon"> <i data-feather="align-justify"></i> </div>
                     <div class="menu__title"> Deskripsi </div>
                 </a>
@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="side-menu-crud-form.html" class="menu">
+                <a href="{{route('cetak-intrumen.index')}}" class="menu {{ Request::is('cetak-intrumen/*') ? 'menu--active' : '' }}">
                     <div class="menu__icon"> <i data-feather="printer"></i> </div>
                     <div class="menu__title"> Cetak Instrumen Audit </div>
                 </a>
